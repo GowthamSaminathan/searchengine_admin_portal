@@ -1,0 +1,963 @@
+<!doctype html>
+<html lang="en">
+<head>
+<!-- Required meta tags -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+<title>Search - Synonyms</title>
+<link href="css/style.css" rel="stylesheet" type="text/css">
+<link href="css/responsive.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<header class="header-cont">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 col-sm-12 col-md-3 col-lg-2 col-xl-2"> <img src="images/logo.png"  alt=""></div>
+      <div class="col-12 col-sm-12 col-md-3 col-lg-3 col-xl-3">
+        <div class="dropdown">
+          <button class="btn change-domain-btn  dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <img src="images/ic_changedomain.png"  alt=""> Delaware Bussiness </button>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton"> <a class="dropdown-item" href="#">Action</a> <a class="dropdown-item" href="#">Another action</a> <a class="dropdown-item" href="#">Something else here</a> </div>
+        </div>
+      </div>
+      <div class="col-12 col-sm-12 col-md-7 col-lg-7 col-xl-7">
+        <div class="user-right">
+          <div class="top-btn">
+            <button class="btn btn1 btn-primary"> <img src="images/icon1.png"  alt=""> Create a New Engine</button>
+          </div>
+          <div class="notification"> <div class="btn-group">
+  <a  class="btn notifi-btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    <img src="images/notification.png"  alt=""></a>
+  <div class="dropdown-menu dropdown-menu-right notification-txt">
+    
+    <ul>
+    
+    <li><a href="#"> Vestibulum ante ipsum primis in faucibus orci luctus ..... </a></li>
+     <li><a href="#"> Vestibulum ante ipsum primis in faucibus orci luctus ..... </a></li>
+      <li><a href="#"> Vestibulum ante ipsum primis in faucibus orci luctus ..... </a></li>
+       <li><a href="#"> Vestibulum ante ipsum primis in faucibus orci luctus ..... </a></li>
+        <li><a href="#"> Vestibulum ante ipsum primis in faucibus orci luctus ..... </a></li>
+    
+    </ul>
+   
+     
+    
+    
+  </div>
+</div></div>
+          <div class="user-profile">
+            <div class="dropdown"> <a class="btn  dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <span> </span> <img src="images/user.jpg" alt=""> </a>
+              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink" x-placement="bottom-end" style="position: absolute; transform: translate3d(-13px, 42px, 0px); top: 0px; left: 0px; will-change: transform;"> <a class="dropdown-item" href="#"> Setting </a> <a class="dropdown-item" href="#"> Logout</a> </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+<section class="header-row2">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+        <h1> Delaware Bussiness </h1>
+      </div>
+      
+       <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">  
+       
+       <nav class="navbar navbar-expand-lg navbar-light" id="mainNav">
+        <div class=""> 
+          <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button>
+          <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav mr-auto">
+              <li class="nav-item"> <a class="nav-link" href="dashboard.html"> Dashboard</a> </li>
+              <li class="nav-item"> <a class="nav-link " href="domain.html">Domain </a> </li>
+              <li class="nav-item"> <a class="nav-link " href="#"> Analytics</a> </li>
+              <li class="nav-item"> <a class="nav-link " href="search-preview.html"> Search Preview</a> </li>
+              <li class="nav-item"> <a class="nav-link active" href="search-customize-synonyms.html"> Search Customize </a> </li>
+              <li class="nav-item"> <a class="nav-link " href="page-content.html"> Page Content </a> </li>
+              <li class="nav-item"> <a class="nav-link " href="#">API </a> </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+       
+       </div>
+       
+       
+      
+    </div>
+  </div>
+</section>
+<section class="body-cont p-0">
+
+ <!-- The overlay -->
+  <div class="container">
+    <div class="row">
+    
+    <div class="col-12 col-sm-12 col-md-4 col-lg-3 col-xl-3">
+
+<div class="setting-left">
+
+<div class="left-heading"> 
+
+SETTINGS
+
+</div>
+
+
+<div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+      <a class="nav-link" id="v-pills-1-tab" data-toggle="pill" href="#v-pills-1" role="tab" aria-controls="v-pills-1" aria-selected="true">Weight</a>
+      <a class="nav-link" id="v-pills-2-tab" data-toggle="pill" href="#v-pills-2" role="tab" aria-controls="v-pills-2" aria-selected="false">Result Ranking</a>
+      <a class="nav-link active" id="v-pills-3-tab" data-toggle="pill" href="#v-pills-3" role="tab" aria-controls="v-pills-3" aria-selected="false">Synonyms</a>
+    </div>
+</div>
+    </div>
+      <div class="col-12 col-sm-12 col-md-8 col-lg-9 col-xl-9"> 
+      <div class="tab-content" id="v-pills-tabContent">
+      <div class="tab-pane fade" id="v-pills-1" role="tabpanel" aria-labelledby="v-pills-2-tab">
+      
+      <div class="cutomize-cont"> 
+      
+      <div class="row no-gutters">
+      <div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-3 search-customize-left">
+      <div class="search-custom-heading1"> 
+      
+      Delaware Bussiness
+      </div>
+      
+      
+      <div class="search-option-cont">
+      
+      <ul style="margin:0px; padding:0px; list-style:none;">
+      <li> <div class="form-row1">
+      <label>Field</label><select class="custom-select" id="inputGroupSelect01">
+    <option selected>image</option>
+  </select>
+      
+      </div>
+      
+      <div class="form-row1">
+      <label>Weight </label><input type="text" value="6.0" class="slideControl" />
+      
+      </div>
+      
+      
+      </li>
+	
+	<li>
+    <div class="form-row1">
+    <div class="delete-link"><a href="#"> Delete </a></div>
+      <label>Field</label><select class="custom-select" id="inputGroupSelect01">
+    <option selected>image</option>
+  </select>
+      
+      </div>
+    
+    
+       <div class="form-row1">  
+        <label>Weight </label><input type="text" value="4.0" class="slideControl" />
+       
+       </div>
+   </li>
+	<li>
+    <div class="form-row1">
+      <label>Field</label><select class="custom-select" id="inputGroupSelect01">
+    <option selected>image</option>
+  </select>
+      
+      </div>
+       <div class="form-row1">
+        <label>Weight</label><input type="text" value="9.0" class="slideControl" />
+        </div>
+   </li>
+   
+   
+   <p class="add-field"> <a href="#">+Add Filed</a> </p>
+   
+   <span class="restore"> <a href="#"> Restore</a></span>
+   <span> <button class="btn btn-outline-secondary save-btn"> Save </button></span>
+   
+   
+</ul>
+   
+      </div>
+   
+      </div>
+  <div class="col-12 col-sm-6 col-md-9 searchpreview-cont">
+  
+  <div class="search-result2"> 
+  
+  <div class="input-group mb-3">
+  <input type="text" class="form-control form-control-lg" placeholder="Enter a keyword to search" aria-label="" aria-describedby="button-addon2">
+  <div class="input-group-append">
+    <button class="btn btn-primary" type="button" id="button-addon2"><img src="images/search-icon.png"  alt=""> </button>
+  </div>
+</div>
+<div class="result-count"> Showing 1–10 of 834 for "ecommerce"</div>
+
+<div class="search-result-cont"> 
+
+
+<div class="search-result">
+
+<p> <a href="#"> Electronic Commerce (ecommerce) - Investopedia</a></p>
+
+<p> <span> https://www.investopedia.com/terms/e/ecommerce.asp</span></p>
+
+<p>Electronic commerce, or eCommrce solutions (also written as eCommerce) is a type of business model, or segment of a larger business model, that enables a firm or individual to conduct business over an electronic network, typically the internet.</p>
+
+</div>
+
+<div class="search-result">
+
+<p> <a href="#"> Electronic Commerce (ecommerce) - Investopedia</a></p>
+
+<p> <span> https://www.investopedia.com/terms/e/ecommerce.asp</span></p>
+
+<p>Electronic commerce, or eCommrce solutions (also written as eCommerce) is a type of business model, or segment of a larger business model, that enables a firm or individual to conduct business over an electronic network, typically the internet.</p>
+
+</div>
+
+<div class="search-result">
+
+<p> <a href="#"> Electronic Commerce (ecommerce) - Investopedia</a></p>
+
+<p> <span> https://www.investopedia.com/terms/e/ecommerce.asp</span></p>
+
+<p>Electronic commerce, or eCommrce solutions (also written as eCommerce) is a type of business model, or segment of a larger business model, that enables a firm or individual to conduct business over an electronic network, typically the internet.</p>
+
+</div>
+
+<div class="search-result">
+
+<p> <a href="#"> Electronic Commerce (ecommerce) - Investopedia</a></p>
+
+<p> <span> https://www.investopedia.com/terms/e/ecommerce.asp</span></p>
+
+<p>Electronic commerce, or eCommrce solutions (also written as eCommerce) is a type of business model, or segment of a larger business model, that enables a firm or individual to conduct business over an electronic network, typically the internet.</p>
+
+</div>
+
+<div class="search-result">
+
+<p> <a href="#"> Electronic Commerce (ecommerce) - Investopedia</a></p>
+
+<p> <span> https://www.investopedia.com/terms/e/ecommerce.asp</span></p>
+
+<p>Electronic commerce, or eCommrce solutions (also written as eCommerce) is a type of business model, or segment of a larger business model, that enables a firm or individual to conduct business over an electronic network, typically the internet.</p>
+
+</div>
+
+
+<div class="pagination-cont"> <nav aria-label="Page navigation example">
+  <ul class="pagination justify-content-center">
+    
+    <li class="page-item"><a class="page-link active" href="#">1</a></li>
+    <li class="page-item"><a class="page-link" href="#">2</a></li>
+    <li class="page-item"><a class="page-link" href="#">3</a></li>
+     <li class="page-item"><a class="page-link" href="#">4</a></li>
+    <li class="page-item"><a class="page-link" href="#">5</a></li>
+    <li class="page-item"><a class="page-link" href="#">6</a></li>
+     <li class="page-item"><a class="page-link" href="#">7</a></li>
+    <li class="page-item"><a class="page-link" href="#">8</a></li>
+    <li class="page-item"><a class="page-link" href="#">9</a></li>
+     <li class="page-item"><a class="page-link" href="#">10</a></li>
+    <li class="page-item">
+      <a class="page-link" href="#">Next</a>
+    </li>
+  </ul>
+</nav> </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+  
+  </div>
+  
+  
+  </div>
+  
+</div>
+      
+      
+      </div>
+      
+      
+      </div>
+    <!-- Result Ranking -->
+      <div class="tab-pane fade resultranking" id="v-pills-2" role="tabpanel" aria-labelledby="v-pills-3-tab">
+      <div class="row">
+        <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+        <div class="panel">
+          <div class="row">
+            <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 manage-domain-txt manage-domain-txt2"> 
+          <h2> Set Preference </h2>
+            Below are the options to manage URL's.
+          </div>
+          <div class="panel-details rules-table manage-search-result">
+             <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12"> 
+              <div class="search-result-cont"> 
+                  <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6 input-group mb-3">
+                      <input type="text" class="form-control form-control-lg searchValue" placeholder="Search a keyword" aria-label="" aria-describedby="button-addon2">
+                      <div class="input-group-append">
+                        <button class="btn btn-primary resultSearch" type="button" id="resultSearch"><img src="images/search-icon.png"  alt=""> </button>
+                      </div>
+                    </div>
+               </div>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+     </div>
+     </div>
+    <!-- Result Ranking Search -->
+      <div class="tab-pane fade resultrankingsearch" id="v-pills-2_1" role="tabpanel" aria-labelledby="v-pills-4-tab">
+          <div class="row">
+            <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+            <div class="panel">
+              <div class="row">
+                <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 manage-domain-txt manage-domain-txt2"> 
+              <h2> Set Preference </h2>
+                Below are the options to manage URL's.
+              </div>
+               <div class="panel-details rules-table manage-search-result">
+                  <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12"> 
+                      <!-- <div class="col-12 col-sm-12 col-md-3 col-lg-3 col-xl-3">
+                          <div class="dropdown">
+                            <button class="btn change-domain-btn  dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <img src="images/ic_changedomain.png"  alt=""> Delaware Bussiness </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton"> <a class="dropdown-item" href="#">Action</a> <a class="dropdown-item" href="#">Another action</a> <a class="dropdown-item" href="#">Something else here</a> </div>
+                          </div>
+                        </div> -->
+                    <div class="search-result-cont"> 
+                      <h2 class ="search_innerText"></h2> 
+                      <div class ="search_return"></div>
+                      <div class ="result_aliases">Aliases</div>
+                      <input type="text" class="form-control form-control-lg reult_textbox" placeholder="Add an alias" aria-label="" aria-describedby="addon2">
+                      <div class ="result_raniking_rest">Results</div>
+                      <p> <button class="btn btn-outline-secondary jsonresult  col-12 col-sm-12 col-md-7 col-lg-6 col-xl-6" id="myBtn">Add a Path</button></p>
+                      <div class="dropdown">
+                        <button class="btn change-domain-btn  dropdown-toggle1" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Options</button>
+                          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                          <!-- <li class="menu-label">Select an Option</li> -->
+            
+                            <!-- <li class="menu-label menu-label-separator">
+                              Ranking
+                              <span></span>
+                            </li> -->
+                            <li class="menu-sub-item"><a class="needs-confirmation jsonresult_check" data-confirmation-callback="pinAll" href="#">Pin All Results</a></li>
+                            <li class="menu-sub-item"><a class="needs-confirmation jsonresult_refresh" data-confirmation-callback="resetAll" href="#">Restore Default Ranking</a></li>
+            
+                            <!-- <li class="menu-label menu-label-separator">
+                              Visibilityx
+                              <span></span>
+                            </li>
+                            <li class="menu-sub-item">
+                              <a class="return_all needs-confirmation selected" data-confirmation-callback="returnAll" href="#">Show All Results to Users</a>
+                            </li>
+                            <li class="menu-sub-item">
+                              <a class="return_only_pinned needs-confirmation  disabled" data-confirmation-callback="returnOnlyPinned" href="#">Show Only Pinned Results to Users</a>
+                            </li>
+            
+                            <li class="menu-label menu-label-separator">
+                              Analytics
+                              <span></span>
+                            </li>
+                            <li class="menu-sub-item">
+                              <a href="#" id="show_daily_stats">Show Analytics</a>
+                            </li> -->
+              
+                          </div>
+                      </div>
+                      
+                      <div id="sortable" class="draglistitem">
+                      </div>
+                    </div>
+                  </div>
+               </div>
+              </div>
+            </div>
+          </div>
+          </div>
+          
+          </div>
+    <!-- Result Ranking Popup Page -->
+      <div class="tab-pane fade resultrankingpopup" id="v-pills-2_2" role="tabpanel" aria-labelledby="v-pills-5-tab">
+      <div class="row">
+        <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+        <div class="panel">
+          <div class="row">
+          <!-- <span class="close_popup"></span> -->
+          <a href="#" class="close_popup"></a>
+          <!-- <button type="button" class="close_popup" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button> -->
+          <div class="panel-details rules-table manage-search-result">
+              <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12"> 
+              <div class="search-result-cont"> 
+                  <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6 input-group mb-3">
+                      <input type="text" class="form-control form-control-lg searchValuepopup" placeholder="Search a keyword" aria-label="" aria-describedby="button-addon2">
+                      <div class="input-group-append">
+                        <button class="btn btn-primary resultpopupSearch" type="button" id="resultpopupSearch"><img src="images/search-icon.png"  alt=""> </button>
+                      </div>
+                    </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      </div>
+      </div>
+    <!-- Synonyms -->
+      <div class="tab-pane fade show active synonyms-btn" id="v-pills-3" role="tabpanel" aria-labelledby="v-pills-6-tab">
+      
+      <div class="row">
+     <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+        <div class="panel">
+          <div class="row">
+            <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 manage-domain-txt manage-domain-txt2"> 
+    
+    <h2> Create a Synonym Set </h2>
+    <p> <button class="btn btn-outline-secondary save-btn3 col-12 col-sm-12 col-md-7 col-lg-6 col-xl-6" id="createPopup"> create a synonym set</button></p>
+    
+    <hr/>
+Enter a single term in each input box below. Each entry will be considered equivalent to every other entry in the set
+     </div>
+            <div class="panel-details p-0 rules-table ">
+              <div id = "demo" class="col-12 col-sm-12 col-md-7 col-lg-6 col-xl-6 synonyms-table"> 
+              <table class="synonymsTable">
+                <thead>
+                  <tr>
+                   <th>Synonym Sets</th>
+                   <th></th>
+                  </tr>
+                </thead>
+          
+                <tbody>
+                </tbody>
+              </table>
+              </div>
+            </div>
+          </div>
+        </div>
+ 
+      </div>
+       </div>
+      </div>
+    <!-- Create a Edit Synonyms List -->
+      <div class="tab-pane fade createEditsynonyms" id="v-pills-3_1" role="tabpanel" aria-labelledby="v-pills-7-tab">
+      
+        <div class="row">
+      
+       <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+          <div class="panel">
+            <div class="row">
+              <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 manage-domain-txt manage-domain-txt2"> 
+      
+      <h2> Create a Synonym Set </h2>
+      <h6 class = "backSynonym">Back to Synonym Set list</h6>
+      <p> <button class="btn btn-outline-secondary deletebtn col-12 col-sm-12 col-md-7 col-lg-6 col-xl-6" > Delete </button></p>
+      <hr/>
+         </div>
+              
+              <div class="panel-details p-0 rules-table ">
+               <div id = "demo" class="col-12 col-sm-12 col-md-7 col-lg-6 col-xl-6 synonyms-table"> 
+                              
+                </div>
+  
+                <p class="addEditfield col-12 col-sm-12 col-md-7 col-lg-6 col-xl-6" > <a href="#"> <img src="images/add.jpg"  alt=""> Add Filed</a> </p>
+                <p> <button class="btn btn-outline-secondary saveEditbtn col-12 col-sm-12 col-md-7 col-lg-6 col-xl-6" > Save </button></p>
+              </div>
+            </div>
+          </div>
+        </div>
+       </div>
+       </div>
+    <!-- Create a Synonyms List -->
+      <div class="tab-pane fade createSynonyms" id="v-pills-3_2" role="tabpanel" aria-labelledby="v-pills-8-tab">
+        <div class="row">
+      <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+          <div class="panel">
+            <div class="row">
+              <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 manage-domain-txt manage-domain-txt2"> 
+      
+      <h2> Create a Synonym Set </h2>
+      <h6 class = "backSynonym">Back to Synonym Set list</h6>
+      <hr/>
+    </div>
+              <div class="panel-details p-0 rules-table ">
+               <div id = "demo" class="col-12 col-sm-12 col-md-7 col-lg-6 col-xl-6 synonyms-table"> 
+                
+                 <p> <input name="textbox1" type="text" class=" form-control synonymsDisabled" id="textbox1" placeholder="eg: Bike"  /></p>
+                 <p> <input name="textbox2" type="text" class=" form-control synonymsDisabled" id="textbox2" placeholder="eg: Vechile"  /></p>    
+                </div>
+  
+                   <p class="add-field col-12 col-sm-12 col-md-7 col-lg-6 col-xl-6" > <a href="#"> <img src="images/add.jpg"  alt=""> Add Filed</a> </p>
+                  <p> <button class="btn btn-outline-secondary save-btn2 col-12 col-sm-12 col-md-7 col-lg-6 col-xl-6" > Save </button></p>
+                
+                
+              </div>
+            </div>
+          </div>
+   
+        </div>
+   
+        </div>
+       </div>     
+    </div>  
+    </div>
+      
+    </div>
+  </div>
+</section>
+
+<div id="myNav" class="overlay">
+
+  <!-- Button to close the overlay navigation -->
+  <a href="javascript:void(0)" class="closebtn" onClick="closeNav()">&times;</a>
+
+  <!-- Overlay content -->
+  <div class="overlay-content">
+  
+  <div class="container">
+  
+  <div class="row">
+  
+   <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 add-domin-heading"> <h2>Add a domain to Delaware Bussiness</h2>Enter your website URL below to ingest your content for later searching. </div>
+   
+   
+<div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-7 offset-xl-2 "> <div class="loader loader--style3" title="2">
+  <svg version="1.1" id="loader-1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+     width="40px" height="40px" viewBox="0 0 50 50" style="enable-background:new 0 0 50 50;" xml:space="preserve">
+  <path fill="#000" d="M43.935,25.145c0-10.318-8.364-18.683-18.683-18.683c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615c8.072,0,14.615,6.543,14.615,14.615H43.935z">
+    <animateTransform attributeType="xml"
+      attributeName="transform"
+      type="rotate"
+      from="0 25 25"
+      to="360 25 25"
+      dur="0.6s"
+      repeatCount="indefinite"/>
+    </path>
+  </svg>
+</div><label>Website URL</label> <input name="" type="text" class="form-control add-domin-filed" placeholder="http://example.com"> </div>
+    
+    <div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-3 mt-4">  <button class="btn btn1 btn2"> Add Domain</button> </div>
+    </div>
+  
+  </div>
+  </div>
+
+</div>
+
+<!-- Optional JavaScript --> 
+<!-- jQuery first, then Popper.js, then Bootstrap JS --> 
+<script src="js/jquery-3.3.1.js"></script> 
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script> 
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+<script src="js/progresscircle.js"> </script>
+<script src="js/jquery.slideControl.js"> </script>
+<script type="text/javascript">
+
+$(document).ready(function() {
+    /* Synonyms Create List JS File */
+        $('.slideControl').slideControl();
+        // $('.createSynonyms').hide();
+        // Synonyms
+      
+        var synonyms_counter = 2;
+        var synonyms_storeArray = [];
+        var synonyms_payload = {};
+        var synonyms_editstore = [];
+        var synonyms_editcounter = 0;
+
+        /*   if(synonyms_storeArray.length == 0){
+              $('.synonymsTable').hide();
+            } */
+    /* Synonyms Get API Callback value */
+        $.ajax('http://13.232.131.155/portal/manage_synonyms?engine_name=wisky', // request url
+            {
+              success: function(data, status, xhr) { // success callback function
+              // console.log(data.synonymMappings.managedMap);
+              var storedData = data.synonymMappings.managedMap
+              var storeObj = {}
+              for(x in storedData){
+                storedData[x].unshift(x);
+              }
+              for (x in storedData) {
+                  storeObj[x] = storedData[x].join(', ');
+              }
+              for (x in storeObj) {
+                  // console.log(storeObj[x])   
+                  // console.log(i)
+                  // Edit Button need Means
+                  // $(".synonymsTable").append("<tr><td class ='storeDataobj'>" + storeObj[x] + "</td><td><button id='editEvent' class='btn btn1 btn2 editEvent'> Edit </button></td><tr>");
+                  $(".synonymsTable").append("<tr><td class ='storeDataobj'>" + storeObj[x] + "</td><td><button id='deletebtn' class='btn btn1 btn2 deletebtn'> Delete </button></td><tr>");
+              }
+    /* Edit API Callback Function */          
+              $(".editEvent").click(function() {
+                  // var synonyms_editcounter = 0
+                  $('.createSynonyms').removeClass("show active");
+                  $('.createEditsynonyms').addClass("show active");
+                  $('.synonyms-btn').removeClass("show active");
+                  var editRow = $(this).closest("tr"); // Find the row
+                  var edittext = editRow.find(".storeDataobj").text(); // Find the text
+                  synonyms_editstore = edittext.split(",")
+                  // Let's test it out
+                  console.log(synonyms_editstore);
+                  for (synonyms_editcounter = 0; synonyms_editcounter < synonyms_editstore.length; synonyms_editcounter++) {
+                      $(".synonyms-table").append('<p><input name="texteditbox[]" id="texteditbox' + [synonyms_editcounter] + '" type="text1" class="form-control synonymsDisabled" value="' + synonyms_editstore[synonyms_editcounter] + '"   /></p>');
+                  }
+
+                  $(".addEditfield").click(function() {
+                      $(".synonyms-table").append('<p><input name="texteditbox[]" id="texteditbox' + [synonyms_editcounter] + '" type="text1" class="form-control synonymsDisabled" /></p>');
+                      synonyms_editcounter++;
+                  });
+
+                  $(".saveEditbtn").click(function() {
+                      var editTitles = [];
+                      $('input[name^=texteditbox]').each(function() {
+                          editTitles.push($(this).val());
+                      });
+                      console.log(editTitles);
+    /* Edit Values taken The rest of all values
+                      var sorted_arr = editTitles.slice().sort(); 
+                      var editResults = [];
+                      for (var i = 0; i < sorted_arr.length - 1; i++) {
+                          if (sorted_arr[i + 1] == sorted_arr[i]) {
+                            editResults.push(sorted_arr[i]);
+                          }
+                      }
+                      var editValuelast = editTitles.filter(function(item) {
+                      return !editResults.includes(item); 
+                    }) */
+                      var temp = [];
+                      for (i = 0; i < editTitles.length; i++) {
+                          var edit_opvalue = [];
+                          for (j = 0; j < editTitles.length; j++) {
+                              if (editTitles[i] == editTitles[j]) {
+                                  edit_opvalue.push(editTitles[i])
+                              }
+                          }
+                          if (edit_opvalue.length >= 2) {
+                              edit_opvalue.splice(0, 2)
+                          }
+                          for (var k = 0; k < edit_opvalue.length; k++) {
+                              if (temp.indexOf(edit_opvalue[k]) == -1) {
+                                  temp.push(edit_opvalue[k])
+                              }
+                          }
+                      }
+                      console.log(temp)
+                  });
+
+              });
+    /* Delete API Callback Function */
+              $('.deletebtn').click(function() {
+                var editRow = $(this).closest("tr"); // Find the row
+                var edittext = editRow.find(".storeDataobj").text(); // Find the text
+                synonyms_editstore = edittext.split(",")
+                  // Let's test it out
+                  console.log(synonyms_editstore);
+                  $.ajax({
+                      url: 'http://13.232.131.155/portal/manage_synonyms?engine_name=wisky&synonyms=' + synonyms_editstore[0],
+                      type: 'DELETE',
+                      processData: false,
+                      contentType: false,
+                      success: function(data) {
+                          console.log(data)
+                      }
+                  });
+
+                  $('.createSynonyms').removeClass("show active");
+                  $('.createEditsynonyms').removeClass("show active");
+                  $('.synonyms-btn').addClass("show active");
+                  location.reload();
+              });
+              }
+          });
+
+        $('#createPopup').click(function() {
+            // $('.createSynonyms').show();
+            $('.createSynonyms').addClass("show active");
+            $('.synonyms-btn').removeClass("show active");
+            $('.createEditsynonyms').removeClass("show active");
+
+        });
+        $('.backSynonym').click(function() {
+            $('.createSynonyms').removeClass("show active");
+            $('.createEditsynonyms').removeClass("show active");
+            $('.synonyms-btn').addClass("show active");
+            location.reload();
+        });
+
+        $(".add-field").click(function() {
+            synonyms_counter++;
+            $(".synonyms-table:last").append('<p><input name="textbox' + synonyms_counter + '" id="textbox' + synonyms_counter + '" type="text" class="form-control synonymsDisabled" value=""   /></p>');
+
+            /*  $('.synonymsDisabled').keyup(function(){
+                 if($(this).val().length !=0)
+                     $('.save-btn2').attr('disabled', false);            
+                 else
+                     $('.save-btn2').attr('disabled',true);
+             })  */
+        });
+
+        $(".save-btn2").click(function() {
+            $('.createSynonyms').removeClass("show active");
+            $('.createEditsynonyms').removeClass("show active");
+            $('.synonyms-btn').addClass("show active");
+            var synonyms_textValue = '';
+            $('#texteditbox' + synonyms_editcounter).remove();
+
+            // $('.save-btn2').attr("disabled", true);
+
+            for (i = 1; i <= synonyms_counter; i++) {
+                synonyms_textValue = $('#textbox' + i).val();
+                // $('#textbox' + i).remove();
+                synonyms_storeArray.push(synonyms_textValue);
+
+            }
+            synonyms_counter = 2;
+            var synonymsJoin = synonyms_storeArray.join()
+            synonyms_payload.engine_name = synonyms_storeArray
+            
+            // console.log(synonyms_payload)
+            var synonymsStoredvalue = synonyms_storeArray
+            var synonymsFirstvalueremove = synonymsStoredvalue.shift()  
+            var synonymsSendObj = {}
+            synonymsSendObj[synonymsFirstvalueremove] = synonymsStoredvalue
+    
+            var form = new FormData();
+            form.append("engine_name", "wisky");
+            form.append("synonyms", JSON.stringify(synonymsSendObj));
+            console.log(JSON.stringify(synonymsSendObj));
+            $.ajax({
+                url: 'http://13.232.131.155/portal/manage_synonyms',
+                type: 'PUT',
+                processData: false,
+                contentType: false,
+                data: form,
+                // data: JSON.stringify(synonyms_storeArray),
+                success: function(data) {
+                    console.log(data)
+                }
+            });
+            /* 
+                    if(synonyms_storeArray.length != 0){
+                        $('.synonymsTable').show();
+                      }else{
+                        $('.synonymsTable').hide();
+                      } */
+            location.reload();
+        });
+
+    /* Result Ranking Script */
+        var searchval;
+        var values = [];
+        // var deleteValuesRanking = [];
+         $('.resultSearch, .jsonresult_refresh').click(function() {
+            var searchval = $('.searchValue').val();
+            $('.resultrankingsearch').addClass("show active");
+            $('.resultranking').removeClass("show active");
+            $('#sortable').show();
+            console.log(searchval)
+            $('.search_innerText').text(searchval);
+            $('.search_return').text('Back to Result-Ranking >' + searchval);
+      /* Result Ranking Get API Callback value */
+            $.ajax('http://13.232.131.155/portal/search?q='+ searchval +'&key=707269796143cbf221f3ee0221095dc9ad55e432320146511e&hl=true&hl.snippets=1&hl.fragsize=100&hl.fl=body', // request url
+            {
+              success: function(data, status, xhr) { // success callback function
+              console.log(data.highlighting);
+              var resultrankingData = data.response.docs
+              var resultrankingStoreID = data.highlighting
+              var resultrankingObj = {}
+              var resultrankingStoreObj = {}
+
+              for (x in resultrankingData) {
+                resultrankingObj[x] = resultrankingData[x];
+              }
+              for (y in resultrankingStoreID) {
+                    resultrankingStoreObj[y] = resultrankingStoreID[y];
+                    console.log(resultrankingStoreObj[y]) 
+                  }
+              for (x in resultrankingObj) {
+                  $("#sortable").append("<div class='search-result' id ='search-result_"+x+"'> <div class='manage-result-option'> <div class='search-cancle-btn'> <a> <img src='images/cancel.jpg'  alt=''> </a> </div><div class='clicks-count'> <span> 4 </span> Clicks </div></div><p> <a> "+ resultrankingObj[x].title +"</a></p><p> <span>"+ resultrankingObj[x].url +"</span></p><p class='rankingDatavalue' disabled>"+ resultrankingObj[x].id +"</p><p>"+ resultrankingStoreObj[resultrankingObj[x].id].body +"</p></div>");
+              }
+      /* Result Ranking Sorting Re-arrange API Callback value */
+              $('.jsonresult_check').click(function() {
+                  $('#sortable > .search-result').each(function (index) {
+                    var currentRowdetail = $(this).closest("div"); // Find the row
+                    var currentEdittext = currentRowdetail.find(".rankingDatavalue").text(); 
+                    values.push(currentEdittext);
+                   });
+                  console.log(values)
+                  var form1 = new FormData();
+                  form1.append("domain_name", "https://gic.delaware.gov");
+                  form1.append("engine_name", "wisky");
+                  form1.append("rank_id", JSON.stringify(values));
+                  form1.append("query", searchval);
+                  form1.append("exclude_rank_id", "[]");
+
+                  $.ajax({
+                      url: 'http://13.232.131.155/portal/result_rerank',
+                      data: form1,
+                      contentType: false,
+                      processData: false,
+                      type: 'POST',
+                      success: function(data){
+                          console.log(data);
+                      }
+                  });
+                  values = [];
+               });
+      /* Result Ranking Sorting delete API Callback value */
+              $('.search-cancle-btn').on('click', function(event ) {
+                var deleteValuesRanking = [];
+                 var deleteranking = event.currentTarget.children[0].offsetParent.offsetParent.children[3].innerHTML
+                 var deleteranking_hide = event.currentTarget.children[0].offsetParent.offsetParent.id
+                  deleteValuesRanking.push(deleteranking);
+                  console.log(deleteranking);
+                  var form1 = new FormData();
+                  form1.append("domain_name", "https://gic.delaware.gov");
+                  form1.append("engine_name", "wisky");
+                  form1.append("rank_id", JSON.stringify(values));
+                  form1.append("query", searchval);
+                  form1.append("exclude_rank_id", JSON.stringify(deleteValuesRanking));
+
+                  $.ajax({
+                      url: 'http://13.232.131.155/portal/result_rerank',
+                      data: form1,
+                      contentType: false,
+                      processData: false,
+                      type: 'POST',
+                      success: function(data){
+                          console.log(data);
+                      }
+                  });
+                  $("#"+deleteranking_hide).remove()
+                });
+      /* Result Ranking Refreh API Callback value */
+             /*  $('.jsonresult_refresh').click(function() {
+                  $('#sortable > .search-result').each(function (index) {
+                    var currentRowdetail = $(this).closest("div"); // Find the row
+                    var currentEdittext = currentRowdetail.find(".rankingDatavalue").text(); 
+                    values.push(currentEdittext);
+                   });
+                  console.log(values)
+                  var form1 = new FormData();
+                  form1.append("domain_name", "https://gic.delaware.gov");
+                  form1.append("engine_name", "wisky");
+                  form1.append("rank_id", JSON.stringify(values));
+                  form1.append("query", searchval);
+                  form1.append("exclude_rank_id", "[]");
+
+                  $.ajax({
+                      url: 'http://13.232.131.155/portal/result_rerank',
+                      data: form1,
+                      contentType: false,
+                      processData: false,
+                      type: 'POST',
+                      success: function(data){
+                          console.log(data);
+                      }
+                  });
+                  values = [];
+               });   */
+              
+              // console.log(deleteValuesRanking);
+              
+            }
+          }); 
+         });
+         
+         $('#myBtn').click(function() {
+            $('.searchValuepopup').val('');
+            $('.resultrankingpopup').addClass("show active");
+            $('.resultrankingsearch').removeClass("show active");
+         });
+         $('.close_popup, .resultpopupSearch').click(function() {
+            $('.resultrankingsearch').addClass("show active");
+            $('.resultrankingpopup').removeClass("show active");
+         });
+         $('.search_return').click(function() {
+            location.reload();
+            $('.searchValue').val('');
+            $('.resultranking').addClass("show active");
+            $('.resultrankingsearch').removeClass("show active");
+            // $('.searchValuepopup').val('');
+            // $('#sortable').remove();
+         
+         });
+        //  $( function() {
+            $( "#sortable" ).sortable({
+                connectWith: ".draglistitem"
+              }).disableSelection();
+
+            // });
+
+    });
+
+  
+</script>
+
+<script> $(function(){
+
+  $('.circlechart').circlechart();
+
+});
+
+
+/* Open when someone clicks on the span element */
+function openNav() {
+    document.getElementById("myNav").style.width = "100%";
+}
+
+/* Close when someone clicks on the "x" symbol inside the overlay */
+function closeNav() {
+    document.getElementById("myNav").style.width = "0%";
+} 
+
+
+var rangeSlider = function(){
+  var slider = $('.range-slider'),
+      range = $('.range-slider__range'),
+      value = $('.range-slider__value');
+    
+  slider.each(function(){
+
+    value.each(function(){
+      var value = $(this).prev().attr('value');
+      $(this).html(value);
+    });
+
+    range.on('input', function(){
+      $(this).next(value).html(this.value);
+    });
+  });
+};
+
+rangeSlider();
+
+</script>
+
+
+
+</body>
+</html>
+
+
+
