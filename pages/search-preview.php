@@ -28,7 +28,7 @@ require_once('header.php');
      <div class="input-group mb-3">
   <input type="text" class="form-control form-control-lg" placeholder="Enter a keyword to search" aria-label="" aria-describedby="button-addon2">
   <div class="input-group-append">
-    <button class="btn btn-primary" type="button" id="button-addon2"><img src="images/search-icon.png"  alt=""> </button>
+    <button class="btn btn-primary" type="button" id="button-addon2"><img src="../images/search-icon.png"  alt=""> </button>
   </div>
 </div>
     </div>

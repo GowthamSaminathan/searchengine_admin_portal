@@ -21,7 +21,6 @@ $(document).ready( function () {
   );
 } );
 
-
 /* Open when someone clicks on the span element */
 function openNav() {
     document.getElementById("myNav").style.width = "100%";
@@ -31,7 +30,15 @@ function openNav() {
 function closeNav() {
     document.getElementById("myNav").style.width = "0%";
 } 
+/* Open when someone clicks on the span element */
+function openNavengine() {
+    document.getElementById("myNavengine").style.width = "100%";
+}
 
+/* Close when someone clicks on the "x" symbol inside the overlay */
+function closeNavengine() {
+    document.getElementById("myNavengine").style.width = "0%";
+} 
 
 var rangeSlider = function(){
   var slider = $('.range-slider'),
@@ -55,6 +62,7 @@ rangeSlider();
 
 
 
+//set_current_engine( 'wisky');
 
 //set engine globally - when click in header main menu
 set_engine(onsuccess=function (result){
@@ -111,7 +119,7 @@ get_engine(engine,onsuccess=function (result){
         if (data.CrawlSchedule) {
           scheduled = data.CrawlSchedule.time;
           no_of_pages = data.Pages;
-          //console.log(scheduled)
+          //console.log(scheduled)  
         }
       });
     });
@@ -134,13 +142,32 @@ get_engine(engine,onsuccess=function (result){
       domainList += '</div>';
       domainList += '</div></td>';
       domainList += '</tr>';
+
     }
   });
   
   $('#domainlistTable tr:last').after(domainList);
 
 });
+/****************** add engine *******************/
+$('#add-engine-btn').click(function(){
+  var ename = $('#engine-name').val();
+  var form1 = new FormData();
+  form1.append("engine_name", ename);
 
+  $.ajax({
+      url: 'http://13.232.131.155/portal/create_engine',
+      data: form1,
+      contentType: false,
+      processData: false,
+      type: 'POST',
+      success: function(data){
+          console.log(data);
+      }
+    });
+  closeNavengine();
+  location.reload();
+});
 
 /****************** add domain *******************/
 $('#add-domain-btn').click(function(){
@@ -210,13 +237,3 @@ console.log(inp);*/
     console.log('weight');
     console.log(this.value);
   }*/
-
-
-
-
-
-
-/****************** BOOPATHI code START *******************/
-
-
-

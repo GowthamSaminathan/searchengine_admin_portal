@@ -2,18 +2,60 @@
 require_once('header.php');
 ?>
 
+<style>
+  .current {
+    color: green;
+  }
+
+  #pagination-demo li {
+    display: inline-block;
+  }
+  #pagination-demo {
+    position: relative;
+    top: 15px;
+    /* left: calc(40% - 40px/2); */
+  }
+  #pagination-demoweight li {
+    display: inline-block;
+  }
+  #pagination-demoweight {
+    position: relative;
+    top: 15px;
+    /* left: calc(40% - 40px/2); */
+  }
+  .search-resultweight {
+	width:100%;
+	float:left;
+	color: #24233A;
+	font-family: Muli;
+	font-size: 13px;
+	letter-spacing: 0.1px;
+	border-bottom:#EDF1F4 solid 1px;
+	padding-bottom:15px;
+	padding-top:10px;
+	margin-bottom:5px;
+}
+.search-resultweight p {
+	margin-bottom:2px;
+}
+.search-resultweight span {
+	color: #306437;
+	font-size: 13px;
+	font-weight: 600;
+	line-height: 16px;
+}
+.search-resultweight a {
+	color: #55AAFF;
+	font-size: 16px;
+	font-weight: bold;
+	line-height: 20px;
+}
+
+</style>
 <section class="body-cont p-0">
 
  <!-- The overlay -->
-
-
-
-
-
-
-
-
-  <div class="container">
+<div class="container">
     <div class="row">
     
     <div class="col-12 col-sm-12 col-md-4 col-lg-3 col-xl-3">
@@ -129,7 +171,72 @@ require_once('header.php');
                 });
 
             });
+  $(document).ready(function() {
+
+      var searchvalweight;
+      var values = [];
+      // var deleteValuesRanking = [];
+       $('.resultSearchweight').click(function() {
+          var searchvalweight = $('.searchValueweight').val();
+          $('.resultrankingsearch').removeClass("show active");
+          $('.resultranking').removeClass("show active");
+          $('#sortable1').show();
+          console.log(searchvalweight)
+          // $('.search_innerText').text(searchvalweight);
+          // $('.search_return').text('Back to Result-Ranking >' + searchvalweight);
+    /* Result Ranking Get API Callback value */
+          $.ajax('http://13.232.131.155/portal/search?q='+ searchvalweight +'&key=707269796143cbf221f3ee0221095dc9ad55e432320146511e&hl=true&hl.snippets=1&hl.fragsize=100&hl.fl=body', // request url
+          {
+            success: function(data, status, xhr) { // success callback function
+            console.log(data.highlighting);
+            var resultrankingData1 = data.response.docs
+            var resultrankingStoreID1 = data.highlighting
+            var resultrankingObj1 = {}
+            var resultrankingStoreObj1 = {}
+
+            for (x in resultrankingData1) {
+              resultrankingObj1[x] = resultrankingData1[x];
+            }
+            for (y in resultrankingStoreID1) {
+                  resultrankingStoreObj1[y] = resultrankingStoreID1[y];
+                  console.log(resultrankingStoreObj1[y]) 
+                }
+            for (x in resultrankingObj1) {
+                $("#sortable1").append("<div class='search-resultweight' id ='search-result_"+x+"'> <div class='manage-result-option'> <div class='search-cancle-btn'> <a> <img src='images/cancel.jpg'  alt=''> </a> </div></div><p> <a> "+ resultrankingObj1[x].title +"</a></p><p> <span>"+ resultrankingObj1[x].url +"</span></p><p class='rankingDatavalue' disabled>"+ resultrankingObj1[x].id +"</p><p>"+ resultrankingStoreObj1[resultrankingObj1[x].id].body +"</p></div>");
+            }
+            
+              pageSizeweight = 3;
+              var totalweightcount = $(".search-resultweight").length;
+              var pageCountweight =  $(".search-resultweight").length / pageSizeweight;
+                for(var i = 0 ; i<pageCountweight;i++){
+                    
+                  $("#pagination-demoweight").append('<li class="page-item"><a class="page-link" href="#">'+(i+1)+'</a></li>');
+                }
+                    $("#pagination-demoweight li").first().find("a").addClass("current")
+                showPage = function(page) {
+                  $(".search-resultweight").hide();
+                  $(".search-resultweight").each(function(n) {
+                      if (n >= pageSizeweight * (page - 1) && n < pageSizeweight * page)
+                          $(this).show();
+                  });        
+              }
+                
+              showPage(1);
+
+              $("#pagination-demoweight li a").click(function() {
+                  $("#pagination-demoweight li a").removeClass("current");
+                  $(this).addClass("current");
+                  showPage(parseInt($(this).text())) 
+              });
+
+              $('.result-count').text('Showing 1 – 3 of ' + totalweightcount + ' for "' + searchvalweight +'"');    
+              
+            }
+          });
+       });
+            });
           </script>
+
       
       </div>
  
@@ -139,69 +246,22 @@ require_once('header.php');
           <div class="search-result2"> 
           
               <div class="input-group mb-3">
-                <input type="text" class="form-control form-control-lg" placeholder="Enter a keyword to search" aria-label="" aria-describedby="button-addon2">
+                <input type="text" class="form-control form-control-lg searchValueweight" placeholder="Enter a keyword to search" aria-label="" aria-describedby="button-addon2">
                 <div class="input-group-append">
-                  <button class="btn btn-primary" type="button" id="button-addon2"><img src="../images/search-icon.png"  alt=""> </button>
+                  <button class="btn btn-primary resultSearchweight" type="button" id="resultSearchweight"><img src="../images/search-icon.png"  alt=""> </button>
                 </div>
               </div>
               
-              <div class="result-count"> Showing 1–10 of 834 for "ecommerce"</div>
+              <div class="result-count"> </div>
 
               <div class="search-result-cont"> 
-
-
-                  <div class="search-result">
-
-                  <p> <a href="#"> Electronic Commerce (ecommerce) - Investopedia</a></p>
-
-                  <p> <span> https://www.investopedia.com/terms/e/ecommerce.asp</span></p>
-
-                  <p>Electronic commerce, or eCommrce solutions (also written as eCommerce) is a type of business model, or segment of a larger business model, that enables a firm or individual to conduct business over an electronic network, typically the internet.</p>
-
-                  </div>
-
-              <div class="search-result">
-
-              <p> <a href="#"> Electronic Commerce (ecommerce) - Investopedia</a></p>
-
-              <p> <span> https://www.investopedia.com/terms/e/ecommerce.asp</span></p>
-
-              <p>Electronic commerce, or eCommrce solutions (also written as eCommerce) is a type of business model, or segment of a larger business model, that enables a firm or individual to conduct business over an electronic network, typically the internet.</p>
-
-              </div>
-
-              <div class="search-result">
-
-              <p> <a href="#"> Electronic Commerce (ecommerce) - Investopedia</a></p>
-
-              <p> <span> https://www.investopedia.com/terms/e/ecommerce.asp</span></p>
-
-              <p>Electronic commerce, or eCommrce solutions (also written as eCommerce) is a type of business model, or segment of a larger business model, that enables a firm or individual to conduct business over an electronic network, typically the internet.</p>
-
-              </div>
-
-              <div class="search-result">
-
-              <p> <a href="#"> Electronic Commerce (ecommerce) - Investopedia</a></p>
-
-              <p> <span> https://www.investopedia.com/terms/e/ecommerce.asp</span></p>
-
-              <p>Electronic commerce, or eCommrce solutions (also written as eCommerce) is a type of business model, or segment of a larger business model, that enables a firm or individual to conduct business over an electronic network, typically the internet.</p>
-
-              </div>
-
-              <div class="search-result">
-
-              <p> <a href="#"> Electronic Commerce (ecommerce) - Investopedia</a></p>
-
-              <p> <span> https://www.investopedia.com/terms/e/ecommerce.asp</span></p>
-
-              <p>Electronic commerce, or eCommrce solutions (also written as eCommerce) is a type of business model, or segment of a larger business model, that enables a firm or individual to conduct business over an electronic network, typically the internet.</p>
-
+              <div id="sortable1" class="draglistitem">
+                <ul id="pagination-demoweight" class="pagination justify-content-center"></ul>
               </div>
 
 
-              <div class="pagination-cont"> <nav aria-label="Page navigation example">
+
+              <!-- <div class="pagination-cont"> <nav aria-label="Page navigation example">
                 <ul class="pagination justify-content-center">
                   
                   <li class="page-item"><a class="page-link active" href="#">1</a></li>
@@ -218,7 +278,7 @@ require_once('header.php');
                     <a class="page-link" href="#">Next</a>
                   </li>
                 </ul>
-              </nav> </div>
+              </nav> </div> -->
 
               </div>
 
@@ -335,7 +395,7 @@ require_once('header.php');
                             <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6 input-group mb-3">
                                 <input type="text" class="form-control form-control-lg searchValue" placeholder="Search a keyword" aria-label="" aria-describedby="button-addon2">
                                 <div class="input-group-append">
-                                  <button class="btn btn-primary resultSearch" type="button" id="resultSearch"><img src="images/search-icon.png"  alt=""> </button>
+                                  <button class="btn btn-primary resultSearch" type="button" id="resultSearch"><img src="../images/search-icon.png"  alt=""> </button>
                                 </div>
                               </div>
                          </div>
@@ -379,13 +439,15 @@ require_once('header.php');
                         </div>
                         
                         <div id="sortable" class="draglistitem">
+                          
                         </div>
+                       
 
                       </div>
                     </div>
                   </div>
-
                 </div>
+                <ul id="pagination-demo" class="pagination justify-content-center"></ul>
               </div>
             </div>
           </div>
@@ -405,7 +467,7 @@ require_once('header.php');
                               <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6 input-group mb-3">
                                 <input type="text" class="form-control form-control-lg searchValuepopup" placeholder="Search a keyword" aria-label="" aria-describedby="button-addon2">
                                 <div class="input-group-append">
-                                  <button class="btn btn-primary resultpopupSearch" type="button" id="resultpopupSearch"><img src="images/search-icon.png"  alt=""> </button>
+                                  <button class="btn btn-primary resultpopupSearch" type="button" id="resultpopupSearch"><img src="../images/search-icon.png"  alt=""> </button>
                                 </div>
                               </div>
                           </div>
@@ -517,7 +579,7 @@ require_once('header.php');
                                   
                     </div>
 
-                    <p class="addEditfield col-12 col-sm-12 col-md-7 col-lg-6 col-xl-6" > <a href="#"> <img src="images/add.jpg"  alt=""> Add Filed</a> </p>
+                    <p class="addEditfield col-12 col-sm-12 col-md-7 col-lg-6 col-xl-6" > <a href="#"> <img src="../images/add.jpg"  alt=""> Add Filed</a> </p>
                     <p> <button class="btn btn-outline-secondary saveEditbtn col-12 col-sm-12 col-md-7 col-lg-6 col-xl-6" > Save </button></p>
                   </div>
 
@@ -546,7 +608,7 @@ require_once('header.php');
                        <p> <input name="textbox2" type="text" class=" form-control synonymsDisabled" id="textbox2" placeholder="eg: Vechile"  /></p>    
                     </div>
       
-                      <p class="add-field col-12 col-sm-12 col-md-7 col-lg-6 col-xl-6" > <a href="#"> <img src="images/add.jpg"  alt=""> Add Filed</a> </p>
+                      <p class="add-field col-12 col-sm-12 col-md-7 col-lg-6 col-xl-6" > <a href="#"> <img src="../images/add.jpg"  alt=""> Add Filed</a> </p>
                       <p> <button class="btn btn-outline-secondary save-btn2 col-12 col-sm-12 col-md-7 col-lg-6 col-xl-6" > Save </button></p>
                     
                   </div>
@@ -590,6 +652,8 @@ require_once('header.php');
 $(document).ready(function() {
     /* Synonyms Create List JS File */
         $('.slideControl').slideControl();
+        $('.synonyms-btn').removeClass("show active");
+        var getDomain = document.domain;
         // $('.createSynonyms').hide();
         // Synonyms
       
@@ -783,6 +847,7 @@ $(document).ready(function() {
     /* Result Ranking Script */
         var searchval;
         var values = [];
+       
         // var deleteValuesRanking = [];
          $('.resultSearch, .jsonresult_refresh').click(function() {
             var searchval = $('.searchValue').val();
@@ -810,8 +875,31 @@ $(document).ready(function() {
                     console.log(resultrankingStoreObj[y]) 
                   }
               for (x in resultrankingObj) {
-                  $("#sortable").append("<div class='search-result' id ='search-result_"+x+"'> <div class='manage-result-option'> <div class='search-cancle-btn'> <a> <img src='images/cancel.jpg'  alt=''> </a> </div><div class='clicks-count'> <span> 4 </span> Clicks </div></div><p> <a> "+ resultrankingObj[x].title +"</a></p><p> <span>"+ resultrankingObj[x].url +"</span></p><p class='rankingDatavalue' disabled>"+ resultrankingObj[x].id +"</p><p>"+ resultrankingStoreObj[resultrankingObj[x].id].body +"</p></div>");
+                  $("#sortable").append("<div class='search-result asd' id ='search-result_"+x+"'> <div class='manage-result-option'> <div class='search-cancle-btn'> <a> <img src='../images/cancel.jpg'  alt=''> </a> </div></div><p> <a> "+ resultrankingObj[x].title +"</a></p><p> <span>"+ resultrankingObj[x].url +"</span></p><p class='rankingDatavalue' disabled>"+ resultrankingObj[x].id +"</p><p>"+ resultrankingStoreObj[resultrankingObj[x].id].body +"</p></div>");
               }
+              /* Pagenation souce Start  */
+                pageSize = 3;
+                var pageCount =  $(".asd").length / pageSize;
+                  for(var i = 0 ; i<pageCount;i++){
+                  $("#pagination-demo").append('<li class="page-item"><a class="page-link" href="#">'+(i+1)+'</a></li>');
+                  }
+                      $("#pagination-demo li").first().find("a").addClass("current")
+                  showPage1 = function(page) {
+                    $(".asd").hide();
+                    $(".asd").each(function(n) {
+                        if (n >= pageSize * (page - 1) && n < pageSize * page)
+                            $(this).show();
+                    });        
+                }
+                  
+                showPage1(1);
+
+                $("#pagination-demo li a").click(function() {
+                    $("#pagination-demo li a").removeClass("current");
+                    $(this).addClass("current");
+                    showPage1(parseInt($(this).text())) 
+                });     
+            /* Pagenation souce End  */  
       /* Result Ranking Sorting Re-arrange API Callback value */
               $('.jsonresult_check').click(function() {
                   $('#sortable > .search-result').each(function (index) {
@@ -839,6 +927,7 @@ $(document).ready(function() {
                   });
                   values = [];
                });
+         
       /* Result Ranking Sorting delete API Callback value */
               $('.search-cancle-btn').on('click', function(event ) {
                 var deleteValuesRanking = [];

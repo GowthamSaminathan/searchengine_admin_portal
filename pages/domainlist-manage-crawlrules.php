@@ -130,7 +130,74 @@ SETTINGS
      
      
       </div></div>
-      <div class="tab-pane fade" id="v-pills-2" role="tabpanel" aria-labelledby="v-pills-3-tab">tab2</div>
+      <div class="tab-pane fade" id="v-pills-2" role="tabpanel" aria-labelledby="v-pills-3-tab">
+        <div class="row">
+          <div class="col-12 col-sm-12 col-md-8 col-lg-8 col-xl-8 manage-domain-txt mt-4">
+            <h2> App Rules
+              <?php echo $_GET['domain']; ?>
+            </h2>
+          You can control how your domain is crawled by adding path-based rules
+          </div>
+          <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+            <div class="panel">
+              <div class="row">
+                <div class="col-12 col-sm-12 col-md-9 col-lg-9 col-xl-9">
+                  <div class="panel-heading panel-heading2">
+                    <h2> Whitelist App </h2>
+                  </div>
+                </div>
+                <div class="col-12 col-sm-12 col-md-3 col-lg-3 col-xl-3 more-options text-right">
+                  <button type="button" class="btn btn-primary addRulebutton" data-toggle="modal" data-target="#addRuleModel_1">+ Add Rule</button>
+                </div>
+                <div class="panel-details p-0 rules-table">
+                  <div class="table-responsive">
+                    <table class="table table-hover" id="whitelistTable_1">
+                      <thead class="table-heading1">
+                        <tr>
+                          <th scope="col">Rule</th>
+                          <th scope="col">Type</th>
+                          <th scope="col"></th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr></tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="panel">
+              <div class="row">
+                <div class="col-12 col-sm-12 col-md-9 col-lg-9 col-xl-9">
+                  <div class="panel-heading panel-heading2">
+                    <h2> Blacklist App </h2>
+                  </div>
+                </div>
+                <div class="col-12 col-sm-12 col-md-3 col-lg-3 col-xl-3 more-options text-right">
+                  <button type="button" class="btn btn-primary addRulebutton" data-toggle="modal" data-target="#addBlistRuleModel_1">+ Add Rule</button>
+                </div>
+                <div class="panel-details p-0 rules-table">
+                  <div class="table-responsive">
+                    <table class="table table-hover" id="blackListTable_1">
+                      <thead class="table-heading1">
+                        <tr>
+                          <th scope="col">Rule</th>
+                          <th scope="col">Type</th>
+                          <th scope="col"></th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr></tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
       <!-- <div class="tab-pane fade" id="v-pills-3" role="tabpanel" aria-labelledby="v-pills-4-tab">tab3</div> -->
 
       <div class="tab-pane fade" id="v-pills-3" role="tabpanel" aria-labelledby="v-pills-4-tab">
@@ -469,7 +536,110 @@ SETTINGS
   </div>
 </div>
 
+<!-- Modal - Whitelist App -->
+<div class="modal fade" id="addRuleModel_1" tabindex="-1" role="dialog" aria-labelledby="addRuleModelTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title appCheck">Add a Whitelist App</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>Only allow URLs which</p>
+        <select name="type" id="white-list-type">
+          <option value="prefix">begin with</option>
+          <option value="substring">contain</option>
+          <option value="suffix">end with</option>
+          <option value="regex">match regex</option>
+        </select>
+        <input type="text" name="pattern" id="white-rule-pattern" value="" placeholder="/example/path" autocomplete="off" class="placeholder addWhiteApptext">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary addWhiteApp" data-dismiss="modal">Add</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- Modal- Blacklist App -->
+<div class="modal fade" id="addBlistRuleModel_1" tabindex="-1" role="dialog" aria-labelledby="addBlistRuleModel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title appCheck">Add a Blacklist App</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>Only allow URLs which</p>
+        <select name="type" id="bloack-list-type">
+          <option value="prefix">begin with</option>
+          <option value="substring">contain</option>
+          <option value="suffix">end with</option>
+          <option value="regex">match regex</option>
+        </select>
+        <input type="text" name="pattern" id="black-rule-pattern" value="" placeholder="/example/path" autocomplete="off" class="placeholder addBlackApptext">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary addBlackApp" data-dismiss="modal">Add</button>
+      </div>
+    </div>
+  </div>
+</div>
 <script type="text/javascript">
+
+$(document).ready(function() {
+  $('.addWhiteApp').click(function() {
+      var WhiteApparray = [];
+      var whiteapprule = $(".addWhiteApptext").val();
+      WhiteApparray.push("application/"+ whiteapprule)
+
+      var form1 = new FormData();
+      form1.append("domain_name", "https://gic.delaware.gov");
+      form1.append("engine_name", "wisky");
+      form1.append("action", "add");
+      form1.append("element", "WhiteListApp");
+      form1.append("value", JSON.stringify(WhiteApparray));
+      $.ajax({
+          url: 'http://13.232.131.155/portal/domain_update',
+          data: form1,
+          contentType: false,
+          processData: false,
+          type: 'PUT',
+          success: function(data){
+              console.log(data);
+          }
+      });
+  });
+  $('.addBlackApp').click(function() {
+      var blackApparray = [];
+      var blackapprule = $(".addBlackApptext").val();
+      blackApparray.push("application/"+ blackapprule)
+      var form1 = new FormData();
+      form1.append("domain_name", "https://gic.delaware.gov");
+      form1.append("engine_name", "wisky");
+      form1.append("action", "add");
+      form1.append("element", "BlackListApp");
+      form1.append("value", JSON.stringify(blackApparray));
+      $.ajax({
+          url: 'http://13.232.131.155/portal/domain_update',
+          data: form1,
+          contentType: false,
+          processData: false,
+          type: 'PUT',
+          success: function(data){
+              console.log(data);
+          }
+      });
+  });
+
+});
 update_crwel_rules();
 function update_crwel_rules(){
     get_domain(engine,domain_name=domain,onsuccess=function (result){
@@ -490,6 +660,7 @@ function update_crwel_rules(){
             whitelist += '</tr>';     
         });
         $('#whitelistTable tbody').html(whitelist);
+        $('#whitelistTable_1 tbody').html(whitelist);
       }
 
       if (data.BlackListApp) {
@@ -506,6 +677,7 @@ function update_crwel_rules(){
             blackList += '</tr>';     
         });
         $('#blackListTable tbody').html(blackList);
+        $('#blackListTable_1 tbody').html(blackList);
       }
       
 

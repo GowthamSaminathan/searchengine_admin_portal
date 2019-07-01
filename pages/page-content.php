@@ -2,6 +2,20 @@
 require_once('header.php');
 ?>
 
+<style>
+  .current {
+    color: green;
+  }
+
+  #pagination-demo li {
+    display: inline-block;
+  }
+  #pagination-demo {
+    position: absolute;
+    bottom: 0px;
+    left: calc(50% - 50px/2);
+  }
+</style>
 
 <section class="body-cont">
   <div class="container">
@@ -23,7 +37,7 @@ require_once('header.php');
      <div class="input-group mb-3">
   <input type="text" class="form-control form-control-lg searchValue" placeholder="Enter a keyword to search" aria-label="" aria-describedby="button-addon2">
   <div class="input-group-append">
-    <button class="btn btn-primary resultSearch" type="button" id="resultSearch"><img src="images/search-icon.png"  alt=""> </button>
+    <button class="btn btn-primary resultSearch" type="button" id="resultSearch"><img src="../images/search-icon.png"  alt=""> </button>
   </div>
 </div>
     </div>
@@ -48,8 +62,10 @@ require_once('header.php');
      <div class="search-result1 page-cont">
      
      <div class="search-result-cont "> 
-        <div id="sortable" class="draglistitem">
+        <div id="sortable1" class="draglistitem">
+        <ul id="pagination-demo" class="pagination justify-content-center"></ul>
           </div>
+          
 <!-- 
 <div class="search-result">
 
@@ -90,11 +106,10 @@ require_once('header.php');
 <p> <span> https://www.investopedia.com/terms/e/ecommerce.asp</span></p>
 
 </div> -->
-
-<div class="pagination-cont"> <nav aria-label="Page navigation example">
-  <ul class="pagination justify-content-center">
-    
-    <li class="page-item"><a class="page-link active" href="#">1</a></li>
+<!-- <ul id="pagination-demo" class="pagination-lg pull-right"></ul> -->
+<!-- <div class="pagination-cont"> <nav aria-label="Page navigation example"> 
+   <ul id="pagination-demo" class="pagination justify-content-center">
+    <!-- <li class="page-item"><a class="page-link active" href="#">1</a></li>
     <li class="page-item"><a class="page-link" href="#">2</a></li>
     <li class="page-item"><a class="page-link" href="#">3</a></li>
      <li class="page-item"><a class="page-link" href="#">4</a></li>
@@ -106,9 +121,9 @@ require_once('header.php');
      <li class="page-item"><a class="page-link" href="#">10</a></li>
     <li class="page-item">
       <a class="page-link" href="#">Next</a>
-    </li>
+    </li> 
   </ul>
-</nav> </div>
+</nav> </div> --> 
 
 </div>
     </div>
@@ -134,7 +149,7 @@ require_once('header.php');
             var searchval = $('.searchValue').val();
             $('.resultrankingsearch').addClass("show active");
             $('.resultranking').removeClass("show active");
-            $('#sortable').show();
+            $('#sortable1').show();
             console.log(searchval)
             $('.search_innerText').text(searchval);
             $('.search_return').text('Back to Result-Ranking >' + searchval);
@@ -156,11 +171,77 @@ require_once('header.php');
                     console.log(resultrankingStoreObj[y]) 
                   }
               for (x in resultrankingObj) {
-                  $("#sortable").append("<div class='search-result' id ='search-result_"+x+"'> <div class='manage-result-option'> <div class='search-cancle-btn'> <a> <img src='images/cancel.jpg'  alt=''> </a> </div><div class='clicks-count'> <span> 4 </span> Clicks </div></div><p> <a> "+ resultrankingObj[x].title +"</a></p><p> <span>"+ resultrankingObj[x].url +"</span></p><p class='rankingDatavalue' disabled>"+ resultrankingObj[x].id +"</p><p>"+ resultrankingStoreObj[resultrankingObj[x].id].body +"</p></div>");
+                  $("#sortable1").append("<div class='search-result' id ='search-result_"+x+"'> <div class='manage-result-option'> <div class='search-cancle-btn'> <a> <img src='images/cancel.jpg'  alt=''> </a> </div></div><p> <a> "+ resultrankingObj[x].title +"</a></p><p> <span>"+ resultrankingObj[x].url +"</span></p><p class='rankingDatavalue' disabled>"+ resultrankingObj[x].id +"</p><p>"+ resultrankingStoreObj[resultrankingObj[x].id].body +"</p></div>");
               }
+              /* $('#pagination-demo').twbsPagination({
+                  totalPages: 5,
+                  // the current page that show on start
+                  startPage: 1,
+
+                  // maximum visible pages
+                  visiblePages: 5,
+
+                  initiateStartPageClick: true,
+
+                  // template for pagination links
+                  href: false,
+
+                  // variable name in href template for page number
+                  hrefVariable: '{{number}}',
+
+                  // Text labels
+                  first: 'First',
+                  prev: 'Previous',
+                  next: 'Next',
+                  last: 'Last',
+
+                  // carousel-style pagination
+                  loop: false,
+
+                  // callback function
+                  onPageClick: function (event, page) {
+                    $('.page-active').removeClass('page-active');
+                    $('#search-result_'+x).addClass('page-active');
+                  },
+
+                  // pagination Classes
+                  paginationClass: 'pagination',
+                  nextClass: 'next',
+                  prevClass: 'prev',
+                  lastClass: 'last',
+                  firstClass: 'first',
+                  pageClass: 'page',
+                  activeClass: 'active',
+                  disabledClass: 'disabled'
+
+                  });
+ */       
+                pageSize = 3;
+
+                var pageCount =  $(".search-result").length / pageSize;
+                  for(var i = 0 ; i<pageCount;i++){
+                      
+                    $("#pagination-demo").append('<li class="page-item"><a class="page-link" href="#">'+(i+1)+'</a></li>');
+                  }
+                      $("#pagination-demo li").first().find("a").addClass("current")
+                  showPage = function(page) {
+                    $(".search-result").hide();
+                    $(".search-result").each(function(n) {
+                        if (n >= pageSize * (page - 1) && n < pageSize * page)
+                            $(this).show();
+                    });        
+                }
+                  
+                showPage(1);
+
+                $("#pagination-demo li a").click(function() {
+                    $("#pagination-demo li a").removeClass("current");
+                    $(this).addClass("current");
+                    showPage(parseInt($(this).text())) 
+                });         
       /* Result Ranking Sorting Re-arrange API Callback value */
               $('.jsonresult_check').click(function() {
-                  $('#sortable > .search-result').each(function (index) {
+                  $('#sortable1 > .search-result').each(function (index) {
                     var currentRowdetail = $(this).closest("div"); // Find the row
                     var currentEdittext = currentRowdetail.find(".rankingDatavalue").text(); 
                     values.push(currentEdittext);
@@ -213,7 +294,7 @@ require_once('header.php');
                 });
       /* Result Ranking Refreh API Callback value */
              /*  $('.jsonresult_refresh').click(function() {
-                  $('#sortable > .search-result').each(function (index) {
+                  $('#sortable1 > .search-result').each(function (index) {
                     var currentRowdetail = $(this).closest("div"); // Find the row
                     var currentEdittext = currentRowdetail.find(".rankingDatavalue").text(); 
                     values.push(currentEdittext);
@@ -260,11 +341,11 @@ require_once('header.php');
             $('.resultranking').addClass("show active");
             $('.resultrankingsearch').removeClass("show active");
             // $('.searchValuepopup').val('');
-            // $('#sortable').remove();
+            // $('#sortable1').remove();
          
          });
         //  $( function() {
-        //     $( "#sortable" ).sortable({
+        //     $( "#sortable1" ).sortable({
         //         connectWith: ".draglistitem"
         //       }).disableSelection();
 
