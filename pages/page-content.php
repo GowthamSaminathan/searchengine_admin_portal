@@ -65,65 +65,6 @@ require_once('header.php');
         <div id="sortable1" class="draglistitem">
         <ul id="pagination-demo" class="pagination justify-content-center"></ul>
           </div>
-          
-<!-- 
-<div class="search-result">
-
-<p> <a href="#"> Why Product Thinking is the next big thing in UX Design</a></p>
-
-<p> <span> https://www.investopedia.com/terms/e/ecommerce.asp</span></p>
-
-</div>
-
-<div class="search-result">
-
-<p> <a href="#"> Why Product Thinking is the next big thing in UX Design</a></p>
-
-<p> <span> https://www.investopedia.com/terms/e/ecommerce.asp</span></p>
-
-</div>
-
-<div class="search-result">
-
-<p> <a href="#"> Why Product Thinking is the next big thing in UX Design</a></p>
-
-<p> <span> https://www.investopedia.com/terms/e/ecommerce.asp</span></p>
-
-</div>
-
-<div class="search-result">
-
-<p> <a href="#"> Why Product Thinking is the next big thing in UX Design</a></p>
-
-<p> <span> https://www.investopedia.com/terms/e/ecommerce.asp</span></p>
-
-</div>
-
-<div class="search-result">
-
-<p> <a href="#"> Why Product Thinking is the next big thing in UX Design</a></p>
-
-<p> <span> https://www.investopedia.com/terms/e/ecommerce.asp</span></p>
-
-</div> -->
-<!-- <ul id="pagination-demo" class="pagination-lg pull-right"></ul> -->
-<!-- <div class="pagination-cont"> <nav aria-label="Page navigation example"> 
-   <ul id="pagination-demo" class="pagination justify-content-center">
-    <!-- <li class="page-item"><a class="page-link active" href="#">1</a></li>
-    <li class="page-item"><a class="page-link" href="#">2</a></li>
-    <li class="page-item"><a class="page-link" href="#">3</a></li>
-     <li class="page-item"><a class="page-link" href="#">4</a></li>
-    <li class="page-item"><a class="page-link" href="#">5</a></li>
-    <li class="page-item"><a class="page-link" href="#">6</a></li>
-     <li class="page-item"><a class="page-link" href="#">7</a></li>
-    <li class="page-item"><a class="page-link" href="#">8</a></li>
-    <li class="page-item"><a class="page-link" href="#">9</a></li>
-     <li class="page-item"><a class="page-link" href="#">10</a></li>
-    <li class="page-item">
-      <a class="page-link" href="#">Next</a>
-    </li> 
-  </ul>
-</nav> </div> --> 
 
 </div>
     </div>
@@ -154,7 +95,7 @@ require_once('header.php');
             $('.search_innerText').text(searchval);
             $('.search_return').text('Back to Result-Ranking >' + searchval);
       /* Result Ranking Get API Callback value */
-            $.ajax('http://13.232.131.155/portal/search?q='+ searchval +'&key=707269796143cbf221f3ee0221095dc9ad55e432320146511e&hl=true&hl.snippets=1&hl.fragsize=100&hl.fl=body', // request url
+            $.ajax('http://13.232.131.155/portal/search?q='+ searchval +'&key=7072697961e1b353ec85523ac6c93d4d412540bebb1459494a&hl=true&hl.snippets=1&hl.fragsize=100&hl.fl=body', // request url
             {
               success: function(data, status, xhr) { // success callback function
               console.log(data.highlighting);
@@ -171,51 +112,9 @@ require_once('header.php');
                     console.log(resultrankingStoreObj[y]) 
                   }
               for (x in resultrankingObj) {
-                  $("#sortable1").append("<div class='search-result' id ='search-result_"+x+"'> <div class='manage-result-option'> <div class='search-cancle-btn'> <a> <img src='images/cancel.jpg'  alt=''> </a> </div></div><p> <a> "+ resultrankingObj[x].title +"</a></p><p> <span>"+ resultrankingObj[x].url +"</span></p><p class='rankingDatavalue' disabled>"+ resultrankingObj[x].id +"</p><p>"+ resultrankingStoreObj[resultrankingObj[x].id].body +"</p></div>");
+                  $("#sortable1").append("<div class='search-result' id ='search-result_"+x+"'> <div class='manage-result-option'> <div class='search-cancle-btn'> <a> <img src='../images/cancel.jpg'  alt=''> </a> </div></div><p> <a> "+ resultrankingObj[x].title +"</a></p><p> <span>"+ resultrankingObj[x].url +"</span></p><p class='rankingDatavalue' disabled>"+ resultrankingObj[x].id +"</p><p>"+ resultrankingStoreObj[resultrankingObj[x].id].body +"</p></div>");
               }
-              /* $('#pagination-demo').twbsPagination({
-                  totalPages: 5,
-                  // the current page that show on start
-                  startPage: 1,
-
-                  // maximum visible pages
-                  visiblePages: 5,
-
-                  initiateStartPageClick: true,
-
-                  // template for pagination links
-                  href: false,
-
-                  // variable name in href template for page number
-                  hrefVariable: '{{number}}',
-
-                  // Text labels
-                  first: 'First',
-                  prev: 'Previous',
-                  next: 'Next',
-                  last: 'Last',
-
-                  // carousel-style pagination
-                  loop: false,
-
-                  // callback function
-                  onPageClick: function (event, page) {
-                    $('.page-active').removeClass('page-active');
-                    $('#search-result_'+x).addClass('page-active');
-                  },
-
-                  // pagination Classes
-                  paginationClass: 'pagination',
-                  nextClass: 'next',
-                  prevClass: 'prev',
-                  lastClass: 'last',
-                  firstClass: 'first',
-                  pageClass: 'page',
-                  activeClass: 'active',
-                  disabledClass: 'disabled'
-
-                  });
- */       
+          
                 pageSize = 3;
 
                 var pageCount =  $(".search-result").length / pageSize;
@@ -249,7 +148,7 @@ require_once('header.php');
                   console.log(values)
                   var form1 = new FormData();
                   form1.append("domain_name", "https://gic.delaware.gov");
-                  form1.append("engine_name", "wisky");
+                  form1.append("engine_name", "engine");
                   form1.append("rank_id", JSON.stringify(values));
                   form1.append("query", searchval);
                   form1.append("exclude_rank_id", "[]");
@@ -275,7 +174,7 @@ require_once('header.php');
                   console.log(deleteranking);
                   var form1 = new FormData();
                   form1.append("domain_name", "https://gic.delaware.gov");
-                  form1.append("engine_name", "wisky");
+                  form1.append("engine_name", engine);
                   form1.append("rank_id", JSON.stringify(values));
                   form1.append("query", searchval);
                   form1.append("exclude_rank_id", JSON.stringify(deleteValuesRanking));

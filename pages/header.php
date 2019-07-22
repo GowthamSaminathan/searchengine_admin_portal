@@ -21,13 +21,15 @@
 <script type="text/javascript" src="../js/portal.js"></script>
 <script type="text/javascript">
 var engine = $.cookie('currentengine');
+console.log(engine)
+debugger;
 const searchParams = new URLSearchParams(window.location.search);
 const domain = searchParams.get('domain');
-get_domain(engine,domain_name=domain,onsuccess=function (result){
+// get_domain(engine,domain_name=domain,onsuccess=function (result){
 
-  console.log(result)
-  console.log(domain_name)
-});
+//   console.log(result)
+//   console.log(domain_name)
+// });
 
 </script>
 </head>
@@ -91,13 +93,13 @@ get_domain(engine,domain_name=domain,onsuccess=function (result){
           <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button>
           <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav mr-auto">
-              <li class="nav-item"> <a class="nav-link" href="#"> Dashboard</a> </li>
-              <li class="nav-item"> <a class="nav-link active" href="/pages/domain.php">Domain </a> </li>
-              <li class="nav-item"> <a class="nav-link " href="#"> Analytics</a> </li>
-              <li class="nav-item"> <a class="nav-link " href="/pages/search-preview.php"> Search Preview</a> </li>
-              <li class="nav-item"> <a class="nav-link " href="/pages/search-customize.php"> Search Customize </a> </li>
-              <li class="nav-item"> <a class="nav-link " href="/pages/page-content.php"> Page Content </a> </li>
-              <li class="nav-item"> <a class="nav-link " href="/pages/api.php">API </a> </li>
+              <li class="nav-item"> <a class="nav-link active" href="/pages/dashboard.php"> Dashboard</a> </li>
+              <li class="nav-item"> <a class="nav-link" href="/pages/domain.php">Domain </a> </li>
+              <li class="nav-item"> <a class="nav-link" href="#"> Analytics</a> </li>
+              <li class="nav-item"> <a class="nav-link" href="/pages/search-preview.php"> Search Preview</a> </li>
+              <li class="nav-item"> <a class="nav-link" href="/pages/search-customize.php"> Search Customize </a> </li>
+              <li class="nav-item"> <a class="nav-link" href="/pages/page-content.php"> Page Content </a> </li>
+              <li class="nav-item"> <a class="nav-link" href="/pages/api.php">API </a> </li>
             </ul>
           </div>
         </div>

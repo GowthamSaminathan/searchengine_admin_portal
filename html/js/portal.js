@@ -60,40 +60,36 @@ var rangeSlider = function(){
 
 rangeSlider();
 
+// engine = wisky;
 
-
-//set_current_engine( 'wisky');
+// set_current_engine( 'wisky');
 
 //set engine globally - when click in header main menu
 set_engine(onsuccess=function (result){
   var engineheadList = '';
-    var defaultEngine = 0;
+  var defaultEngine = 0;
 
-    if (engine.length) {
-      defaultEngine = 1;
-    }
+    // if (engine.length) {
+    //   defaultEngine = 1;
+    // }
 
   $(result).each(function(index,data){    
 
     if (data.type == 'engine') {
-      if (defaultEngine == 0) {
+      // if (defaultEngine == 0) {
 
-      }
+      // }
+     
       engineheadList +='<a class="dropdown-item" href="javascript:set_current_engine( ';
       engineheadList +="'"+data.EngineName+"'";
       engineheadList +=');">'+data.EngineName+'</a> ';
+      // defaultEngine = 1;
     }
     
   });
   $('#engineList').html(engineheadList);
-});
 
-function set_current_engine(current_engine){
-  $.cookie("currentengine", current_engine);
-  location.reload();
-}
-
-/******************Domain list for Domain page *******************/
+  /******************Domain list for Domain page *******************/
 get_engine(engine,onsuccess=function (result){
 
   var domainList = '';
@@ -148,7 +144,17 @@ get_engine(engine,onsuccess=function (result){
   
   $('#domainlistTable tr:last').after(domainList);
 
+  function set_current_engine(current_engine){
+    $.cookie("currentengine", current_engine);
+    location.reload();
+  }
 });
+
+});
+
+
+
+
 /****************** add engine *******************/
 $('#add-engine-btn').click(function(){
   var ename = $('#engine-name').val();
@@ -173,7 +179,7 @@ $('#add-engine-btn').click(function(){
 $('#add-domain-btn').click(function(){
   var dname = $('#domain-name').val();
   create_domain(engine,domain_name=domain,onsuccess=function (result){
-    //console.log('result');
+    console.log('result');
   });
 });
 

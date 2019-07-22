@@ -601,8 +601,8 @@ $(document).ready(function() {
       WhiteApparray.push("application/"+ whiteapprule)
 
       var form1 = new FormData();
-      form1.append("domain_name", "https://gic.delaware.gov");
-      form1.append("engine_name", "wisky");
+      form1.append("domain_name", domain_name);
+      form1.append("engine_name", engine);
       form1.append("action", "add");
       form1.append("element", "WhiteListApp");
       form1.append("value", JSON.stringify(WhiteApparray));
@@ -622,8 +622,8 @@ $(document).ready(function() {
       var blackapprule = $(".addBlackApptext").val();
       blackApparray.push("application/"+ blackapprule)
       var form1 = new FormData();
-      form1.append("domain_name", "https://gic.delaware.gov");
-      form1.append("engine_name", "wisky");
+      form1.append("domain_name", domain_name);
+      form1.append("engine_name", engine);
       form1.append("action", "add");
       form1.append("element", "BlackListApp");
       form1.append("value", JSON.stringify(blackApparray));

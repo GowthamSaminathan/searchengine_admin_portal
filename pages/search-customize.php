@@ -185,7 +185,7 @@ require_once('header.php');
           // $('.search_innerText').text(searchvalweight);
           // $('.search_return').text('Back to Result-Ranking >' + searchvalweight);
     /* Result Ranking Get API Callback value */
-          $.ajax('http://13.232.131.155/portal/search?q='+ searchvalweight +'&key=707269796143cbf221f3ee0221095dc9ad55e432320146511e&hl=true&hl.snippets=1&hl.fragsize=100&hl.fl=body', // request url
+          $.ajax('http://13.232.131.155/portal/search?q='+ searchvalweight +'&key=7072697961e1b353ec85523ac6c93d4d412540bebb1459494a&hl=true&hl.snippets=1&hl.fragsize=100&hl.fl=body', // request url
           {
             success: function(data, status, xhr) { // success callback function
             console.log(data.highlighting);
@@ -202,7 +202,7 @@ require_once('header.php');
                   console.log(resultrankingStoreObj1[y]) 
                 }
             for (x in resultrankingObj1) {
-                $("#sortable1").append("<div class='search-resultweight' id ='search-result_"+x+"'> <div class='manage-result-option'> <div class='search-cancle-btn'> <a> <img src='images/cancel.jpg'  alt=''> </a> </div></div><p> <a> "+ resultrankingObj1[x].title +"</a></p><p> <span>"+ resultrankingObj1[x].url +"</span></p><p class='rankingDatavalue' disabled>"+ resultrankingObj1[x].id +"</p><p>"+ resultrankingStoreObj1[resultrankingObj1[x].id].body +"</p></div>");
+                $("#sortable1").append("<div class='search-resultweight' id ='search-result_"+x+"'> <div class='manage-result-option'> <div class='search-cancle-btn'> <a> <img src='../images/cancel.jpg'  alt=''> </a> </div></div><p> <a> "+ resultrankingObj1[x].title +"</a></p><p> <span>"+ resultrankingObj1[x].url +"</span></p><p class='rankingDatavalue' disabled>"+ resultrankingObj1[x].id +"</p><p>"+ resultrankingStoreObj1[resultrankingObj1[x].id].body +"</p></div>");
             }
             
               pageSizeweight = 3;
@@ -392,7 +392,7 @@ require_once('header.php');
                     <div class="panel-details rules-table manage-search-result">
                        <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12"> 
                         <div class="search-result-cont"> 
-                            <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6 input-group mb-3">
+                            <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-12 input-group mb-3">
                                 <input type="text" class="form-control form-control-lg searchValue" placeholder="Search a keyword" aria-label="" aria-describedby="button-addon2">
                                 <div class="input-group-append">
                                   <button class="btn btn-primary resultSearch" type="button" id="resultSearch"><img src="../images/search-icon.png"  alt=""> </button>
@@ -667,7 +667,7 @@ $(document).ready(function() {
               $('.synonymsTable').hide();
             } */
     /* Synonyms Get API Callback value */
-        $.ajax('http://13.232.131.155/portal/manage_synonyms?engine_name=wisky', // request url
+        $.ajax('http://13.232.131.155/portal/manage_synonyms?engine_name='+ engine, // request url
             {
               success: function(data, status, xhr) { // success callback function
               // console.log(data.synonymMappings.managedMap);
@@ -752,7 +752,7 @@ $(document).ready(function() {
                   // Let's test it out
                   console.log(synonyms_editstore);
                   $.ajax({
-                      url: 'http://13.232.131.155/portal/manage_synonyms?engine_name=wisky&synonyms=' + synonyms_editstore[0],
+                      url: 'http://13.232.131.155/portal/manage_synonyms?engine_name='+ engine +'&synonyms=' + synonyms_editstore[0],
                       type: 'DELETE',
                       processData: false,
                       contentType: false,
@@ -821,7 +821,7 @@ $(document).ready(function() {
             synonymsSendObj[synonymsFirstvalueremove] = synonymsStoredvalue
     
             var form = new FormData();
-            form.append("engine_name", "wisky");
+            form.append("engine_name", engine);
             form.append("synonyms", JSON.stringify(synonymsSendObj));
             console.log(JSON.stringify(synonymsSendObj));
             $.ajax({
@@ -858,7 +858,7 @@ $(document).ready(function() {
             $('.search_innerText').text(searchval);
             $('.search_return').text('Back to Result-Ranking >' + searchval);
       /* Result Ranking Get API Callback value */
-            $.ajax('http://13.232.131.155/portal/search?q='+ searchval +'&key=707269796143cbf221f3ee0221095dc9ad55e432320146511e&hl=true&hl.snippets=1&hl.fragsize=100&hl.fl=body', // request url
+            $.ajax('http://13.232.131.155/portal/search?q='+ searchval +'&key=7072697961e1b353ec85523ac6c93d4d412540bebb1459494a&hl=true&hl.snippets=1&hl.fragsize=100&hl.fl=body', // request url
             {
               success: function(data, status, xhr) { // success callback function
               console.log(data.highlighting);
@@ -909,8 +909,9 @@ $(document).ready(function() {
                    });
                   console.log(values)
                   var form1 = new FormData();
-                  form1.append("domain_name", "https://gic.delaware.gov");
-                  form1.append("engine_name", "wisky");
+                  // form1.append("domain_name", "https://gic.delaware.gov");
+                  form1.append("domain_name", domain);
+                  form1.append("engine_name", engine);
                   form1.append("rank_id", JSON.stringify(values));
                   form1.append("query", searchval);
                   form1.append("exclude_rank_id", "[]");
@@ -936,8 +937,8 @@ $(document).ready(function() {
                   deleteValuesRanking.push(deleteranking);
                   console.log(deleteranking);
                   var form1 = new FormData();
-                  form1.append("domain_name", "https://gic.delaware.gov");
-                  form1.append("engine_name", "wisky");
+                  form1.append("domain_name", domain);
+                  form1.append("engine_name", engine);
                   form1.append("rank_id", JSON.stringify(values));
                   form1.append("query", searchval);
                   form1.append("exclude_rank_id", JSON.stringify(deleteValuesRanking));
