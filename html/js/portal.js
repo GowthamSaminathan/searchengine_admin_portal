@@ -61,8 +61,7 @@ var rangeSlider = function(){
 rangeSlider();
 
 // engine = wisky;
-
-// set_current_engine( 'wisky');
+ //set_current_engine( 'engine_test');
 
 //set engine globally - when click in header main menu
 set_engine(onsuccess=function (result){
@@ -144,16 +143,16 @@ get_engine(engine,onsuccess=function (result){
   
   $('#domainlistTable tr:last').after(domainList);
 
-  function set_current_engine(current_engine){
+  
+});
+
+});
+
+
+function set_current_engine(current_engine){
     $.cookie("currentengine", current_engine);
     location.reload();
   }
-});
-
-});
-
-
-
 
 /****************** add engine *******************/
 $('#add-engine-btn').click(function(){

@@ -110,7 +110,7 @@ require_once('header.php');
           </div>
       
           <script type="text/javascript">
-
+<!---testing---->
             display_weight_list();
             function display_weight_list(){
                 get_domain(engine,domain_name=domain,onsuccess=function (result){
